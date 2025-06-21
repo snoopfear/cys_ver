@@ -18,7 +18,7 @@ echo "📦 Последний существующий контейнер: verif
 
 # Берём claim_reward_address из первого существующего
 if [ -f "config/verifier1/config.yaml" ]; then
-  CLAIM_REWARD_ADDRESS=$(grep 'claim_reward_address:' config/verifier1/config.yaml | awk '{print $2}')
+  CLAIM_REWARD_ADDRESS=$(grep 'claim_reward_address:' config/verifier1/config.yaml | awk -F': ' '{print $2}' | tr -d '"')
   echo "🔁 Используем адрес claim_reward_address: $CLAIM_REWARD_ADDRESS"
 else
   echo "❌ Не найден config/verifier1/config.yaml"
@@ -37,7 +37,7 @@ chain:
   gas_coin: "CYS"
   gas_price: 10
 
-claim_reward_address: "\"$CLAIM_REWARD_ADDRESS\""
+claim_reward_address: "$CLAIM_REWARD_ADDRESS"
 
 server:
   cysic_endpoint: "https://ws-pre.prover.xyz"
