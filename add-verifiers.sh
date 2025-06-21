@@ -37,7 +37,7 @@ chain:
   gas_coin: "CYS"
   gas_price: 10
 
-claim_reward_address: "$CLAIM_REWARD_ADDRESS"
+claim_reward_address: "\"$CLAIM_REWARD_ADDRESS\""
 
 server:
   cysic_endpoint: "https://ws-pre.prover.xyz"
